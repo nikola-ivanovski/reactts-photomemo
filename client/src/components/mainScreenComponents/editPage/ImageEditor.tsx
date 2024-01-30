@@ -8,6 +8,7 @@ import { AppContext, ImageData, Metadata, WorkingFile } from "../../../contexts/
 import backupSvg from "../../../assets/icons/backup.svg";
 import leftSvg from "../../../assets/icons/left-arrow.svg";
 import rightSvg from "../../../assets/icons/right-arrow.svg";
+import logo from "../../../../../public/images/PhotoMemo_logo1.png";
 
 import "./ImageEditor.css";
 import { blobToBase64 } from "../../../utils/file";
@@ -113,7 +114,7 @@ console.log(oldMeta);
   return (
     <>
       <div className="logo_section flex justify-center items-center p-4">
-        <img src="/public/images/PhotoMemo_logo1.png" />
+        <img src={logo} />
       </div>
 
       <ImageEditorActions />
