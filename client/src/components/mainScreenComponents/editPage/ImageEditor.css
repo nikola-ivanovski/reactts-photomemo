@@ -1,0 +1,143 @@
+@font-face {
+  src: url("/public/fonts/roboto.regular.ttf");
+  font-family: "Roboto";
+}
+
+.logo_section {
+  border-bottom: 1px solid #6c2bd9;
+}
+
+.coTHaY {
+  width: 95% !important;
+}
+
+.IOxbc {
+  border-bottom: 1px solid #6c2bd9 !important;
+  padding: 16px 65px !important;
+}
+
+.jEKJhP {
+  background: transparent !important;
+  font-family: "Roboto", sans-serif !important;
+}
+
+.lotQIG {
+  color: #ffffff !important;
+}
+
+.bgcfHr svg {
+  color: #7edce2 !important;
+}
+
+.cnGfFO {
+  color: #7edce2 !important;
+}
+
+.jvREPS svg {
+  color: #7edce2 !important;
+}
+
+.ZkPAm svg {
+  color: #7edce2 !important;
+}
+
+.cTALBo {
+  height: 397px !important;
+  background: transparent !important;
+}
+
+.kPyTZQ {
+  order: 3 !important;
+}
+
+.gVrNQK {
+  order: 1 !important;
+}
+
+.hHEcZQ {
+  background: #5521b5 !important;
+}
+
+.cljGLm span {
+  color: #7edce2 !important;
+}
+
+.hHEcZQ[aria-selected="true"] * {
+  color: #7edce2 !important;
+}
+
+.hHEcZQ svg {
+  color: #7edce2 !important;
+}
+
+.hHEcZQ[aria-selected="true"] {
+  border: 1px solid #ffffff;
+}
+
+.jvREPS[aria-selected="true"] {
+  background: #5521b5 !important;
+}
+
+.jvREPS[aria-selected="true"] * {
+  color: #7edce2 !important;
+}
+
+.lnrByh {
+  box-shadow: none !important;
+}
+
+.daexXi {
+  background-color: transparent !important;
+}
+
+.iGngUQ {
+  width: 550px !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.gMbHsc {
+  color: #7edce2 !important;
+  background-color: #5521b5 !important;
+  border: 1px solid #7e3af2 !important;
+}
+
+.fGSUfi svg {
+  color: #7edce2 !important;
+}
+
+.erYmDF {
+  color: #ffffff !important;
+}
+
+.carousel {
+  width: 100%;
+}
+
+.carousel > .navigation {
+  padding: 0.2rem;
+  margin-top: -8px;
+}
+
+.carousel-img {
+  background: #4a1d96;
+  border-radius: 10px;
+  width: 95%;
+  scrollbar-width: none;
+}
+
+.carousel-img img {
+  cursor: pointer;
+}
+
+.relative {
+  border-radius: 13px;
+}

@@ -1,0 +1,50 @@
+.image-editor-actions-wrapper {
+    position: absolute;
+    right: 0px;
+    transform: translateX(500px);
+    z-index: 999;
+    margin-top: 10px;
+}
+
+.image-editor-actions-wrapper.active {
+    animation: slide-in .5s forwards;
+}
+
+.image-actions-toggle {
+    width: 48px;
+    cursor: pointer;
+}
+
+.image-actions-toggle > button {
+    background: #6e30e0;
+    border-radius: 8px 0 0 8px;
+    border: 1px solid white;
+    border-right: 0;
+}
+
+.img-ea-container {
+    width: 500px;
+    background: #6e30e0;
+    border-left: 3px solid #fff;
+    border-collapse: collapse;
+    border-radius: 0 0 0 8px;
+}
+
+.img-ea-container .datetime-picker .react-datetime-picker__wrapper { 
+    border: 0;
+}
+
+.img-ea-container .datetime-picker {
+    border: 1px solid white;
+  background: white;
+  border-radius: 8px;
+}
+
+.img-ea-container label,
+.img-ea-container h4 {
+    color: #ffffff;
+}
+
+@keyframes slide-in {
+    100% {transform: translateX(0)}
+}

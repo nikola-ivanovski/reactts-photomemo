@@ -1,0 +1,15 @@
+.container > .heading_section {
+    font-family: "Inter", sans-serif;
+}
+
+.container > .heading_section > h1 {
+    color: #ffffff;
+    line-height: 120%;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.container > .heading_section > p {
+    color: #F6F5FF;
+}
