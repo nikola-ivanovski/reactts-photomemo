@@ -23,13 +23,13 @@ export function ImageEditorActions() {
     const fileInputRef = useRef<HTMLInputElement | null>(null);
     const inputActionsRef = useRef<HTMLDivElement | null>(null);
 
-    function onAddImageClick() {
+    const onAddImageClick = () => {
         if (fileInputRef.current) {
             fileInputRef.current.click();
         }
     }
 
-    function onAddImage(event: any) {
+    const onAddImage = (event: any) => {
         const file = event.target.files[0];
         setFileUrls([...fileUrls, {
             objectUrl: createObjectUrl(file),
@@ -43,7 +43,7 @@ export function ImageEditorActions() {
         }
     }
 
-    function onDateChange(date: Date | null) {
+    const onDateChange = (date: Date | null) => {
         setDate(date);
     }
 

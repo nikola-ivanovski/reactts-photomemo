@@ -45,7 +45,7 @@ export const ImageEditorPage: React.FC<ImageAnnotations> = () => {
     changeSaveIcon()
   }, [fileUrls]);
 
-  function onBeforeSave(imageObject: ImageData) {
+  const onBeforeSave = () => {
     fetch(selectedFile?.objectUrl || "")
       .then(r => r.blob())
       .then((blob) => blobToBase64(blob))
@@ -72,7 +72,7 @@ console.log(oldMeta);
       });
   }
 
-  function onSave(imageObject: ImageData) {
+  const onSave = (imageObject: ImageData) => {
     fetch(selectedFile?.objectUrl || "").then(r => r.blob()).then((blob) => blob.text()).then((data: string) => {
       console.log(typeof data);
 

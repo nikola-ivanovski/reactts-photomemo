@@ -7,9 +7,11 @@ import React, {
 import { useDropzone } from "react-dropzone";
 import { useNavigate } from "react-router-dom";
 import { AppContext, WorkingFile } from "../../../contexts/app";
-import axios from "axios";
 import { createObjectUrl } from "../../../utils/file";
 import "./fileUpload.css";
+import addImageIcon from '../../../assets/icons/addImageIcon.svg';
+import folderOutline from '../../../assets/icons/folder-outline.svg';
+import closeBtn from '../../../assets/icons/close-btn.svg';
 
 interface FileUploadProps {
   onOverlayVisibilityChange: (visible: boolean) => void;
@@ -23,39 +25,8 @@ export const FileUpload: React.FC<FileUploadProps> = ({
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const [isDragOver, setIsDragOver] = useState(false);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const { fileUrls, setFileUrls } = useContext(AppContext);
-  const [file, setFile] = useState(null);
   const navigate = useNavigate();
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files.length > 0) {
-      setSelectedFile(event.target.files[0]);
-    }
-  };
-
-  const handleUpload = async () => {
-    if (!selectedFile) {
-      console.error('No file selected');
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('image', selectedFile);
-
-    try {
-      const response = await axios.post('https://localhost:3001/api/images/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      console.log(response.data);
-
-    } catch (error) {
-      console.error('Error uploading file: ', error);
-
-    }
-  }
 
   const onDrop = useCallback(
     async (acceptedFiles: File[]) => {
@@ -70,7 +41,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
         acceptedFiles.forEach((file) => {
           objectUrls.push({ objectUrl: createObjectUrl(file), fileName: file.name })
         });
-        console.log(objectUrls);
+        console.log(fileUrls);
         setFileUrls(objectUrls);
         setIsOverlayVisible(false);
         onOverlayVisibilityChange(false);
@@ -96,22 +67,14 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 
   const {
     getRootProps,
-    // getInputProps,
     isDragActive,
     isDragAccept,
     isDragReject,
-    // acceptedFiles,
   } = useDropzone({
     onDrop,
     onDragEnter,
     onDragLeave,
   });
-
-  // const openFileBrowser = () => {
-  //   if (inputRef.current) {
-  //     inputRef.current.click();
-  //   }
-  // };
 
   const closeBox = () => {
     onOverlayVisibilityChange(false);
@@ -119,14 +82,6 @@ export const FileUpload: React.FC<FileUploadProps> = ({
     setIsDragOver(false);
   };
 
-  // OPTIONAL -> IF POPUP MODAL NEEDED FOR DIFFERENT FILE UPLOAD
-  // const openPopup = (message: string) => {
-  //     setPopupMessage(message);
-  // };
-
-  // const closePopup = () => {
-  //     setPopupMessage(null);
-  // };
 
   return (
     <div>
@@ -144,11 +99,11 @@ export const FileUpload: React.FC<FileUploadProps> = ({
       >
         {isDragOver && (
           <button className="fileUpload_close_btn" onClick={closeBox}>
-            <img src="/client/src/assets/icons/closeBtn.svg" />
+            <img src={closeBtn} />
           </button>
         )}
         <img
-          src="src/assets/icons/addImageIcon.svg"
+          src={addImageIcon}
           style={{ marginBottom: "40px" }}
         />
         <button
@@ -156,7 +111,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           className="fileUpload_btn rounded-lg shadow-md"
           onClick={() => inputRef.current && inputRef.current.click()}
         >
-          <img src="/client/src/assets/icons/folder-outline.svg" />
+          <img src={folderOutline} />
           <span className="fileUpload_btn_text">Browse Files</span>
         </button>
         <input
@@ -165,7 +120,6 @@ export const FileUpload: React.FC<FileUploadProps> = ({
           style={{ display: "none" }}
           accept="image/*"
           onChange={(e) => onDrop(Array.from(e.target.files || []))}
-          // onChange={handleFileChange}
         />
         <p className="fileUpload_box_desc text-xl">
           {isDragAccept
@@ -178,10 +132,6 @@ export const FileUpload: React.FC<FileUploadProps> = ({
         </p>
       </div>
       {isOverlayVisible && <div className="overlay" />}
-      {/* OPTIONAL -> IF POPUP MODAL NEEDED FOR DIFFERENT FILE UPLOAD */}
-      {/* {popupMessage && (
-                <CustomPopup message={popupMessage} onClose={closePopup} />
-            )} */}
     </div>
   );
 };

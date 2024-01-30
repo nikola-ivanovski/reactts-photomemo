@@ -28,7 +28,7 @@ function App() {
           path="/edit/"
           element={
             <AppContext.Provider value={{ fileUrls, setFileUrls, currentImageMeta, setCurrentImageMeta }}>
-              <ImageEditorPage />
+              <ImageEditorPage imageUrl={""} metadata={""} />
             </AppContext.Provider>
           }
         />
